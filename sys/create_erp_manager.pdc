@@ -1,0 +1,27 @@
+PROMPT Creating user ERP_MANAGER...
+
+DECLARE
+  counter NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO counter FROM dba_users t WHERE t.username='ERP_MANAGER';
+  IF counter = 1 THEN 
+    EXECUTE IMMEDIATE 'DROP USER erp_manager CASCADE';
+  END IF;
+END;
+/
+
+CREATE USER erp_manager 
+  IDENTIFIED BY 12345678
+  DEFAULT TABLESPACE users
+  QUOTA UNLIMITED ON users
+;
+
+GRANT CREATE TRIGGER TO erp_manager;
+GRANT CREATE SESSION TO erp_manager;
+GRANT CREATE TABLE TO erp_manager;
+GRANT CREATE VIEW TO erp_manager;
+GRANT CREATE SEQUENCE TO erp_manager;
+GRANT CREATE PROCEDURE TO erp_manager;
+GRANT CREATE TYPE TO erp_manager;
+
+PROMPT Done.
