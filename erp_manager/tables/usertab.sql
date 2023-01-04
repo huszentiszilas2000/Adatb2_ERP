@@ -3,5 +3,5 @@ create table usertab(
        azonosito        varchar2(20) not null,
        nev              varchar2(30),
        aktiv            varchar(1),
-       adminisztrator   number not null   
+       adminisztrator   varchar(1)   
 );
