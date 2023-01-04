@@ -1,0 +1,18 @@
+CREATE OR REPLACE TRIGGER stocktab_trg
+  BEFORE INSERT OR UPDATE ON stocktab
+  FOR EACH ROW
+BEGIN
+  IF inserting
+  THEN
+    IF :new.db_id IS NULL
+    THEN
+      :new.db_id := stock_seq.nextval;
+    END IF;
+  
+    :new.db_beg    := SYSDATE;
+    :new.db_end    := TO_DATE('31-12-9999');
+  END IF;
+
+  :new.mod_user_id := sys_context('USERENV', 'OS_USER');
+END stocktab_trg;
+/

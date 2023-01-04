@@ -1,0 +1,52 @@
+CREATE OR REPLACE TRIGGER partnertab_h_trg
+  AFTER INSERT OR UPDATE OR DELETE ON partnertab_h
+  FOR EACH ROW
+DECLARE
+  v_mod_user partnertab_h.mod_user_id%TYPE;
+  v_mod_time partnertab_h.db_end%TYPE;
+BEGIN
+  v_mod_user := sys_context('USERENV', 'OS_USER');
+  v_mod_time := SYSDATE;
+
+  IF deleting
+  THEN
+    INSERT INTO partnertab_h(db_id,
+                         nev,
+                         partner_cim,
+                         bankszamlaszam,
+                         fizetesi_mod,
+                         db_beg,
+                         db_end,
+                         mod_user_id,
+                         db_deleted)
+                         values(:old.db_id,
+                                :old.nev,
+                                :old.partner_cim,
+                                :old.bankszamlaszam,
+                                :old.fizetesi_mod,
+                                :old.db_beg,
+                                v_mod_time,
+                                v_mod_user,
+                                'Y');
+  ELSE
+    INSERT INTO partnertab_h(db_id,
+                         nev,
+                         partner_cim,
+                         bankszamlaszam,
+                         fizetesi_mod,
+                         db_beg,
+                         db_end,
+                         mod_user_id,
+                         db_deleted)
+                         values(:new.db_id,
+                                :new.nev,
+                                :new.partner_cim,
+                                :new.bankszamlaszam,
+                                :new.fizetesi_mod,
+                                :new.db_beg,
+                                :new.db_end,
+                                :new.mod_user_id,
+                                'N');
+  END IF;
+END;
+/
