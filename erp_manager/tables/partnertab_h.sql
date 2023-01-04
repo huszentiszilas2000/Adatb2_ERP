@@ -6,6 +6,6 @@ create table partnertab_h(
        fizetesi_mod_id  number,
        db_beg           timestamp(6),
        db_end           timestamp(6),
-       mod_user_id      number,
+       mod_user_id      varchar2(300),
        db_deleted       varchar2(1)      
 );
