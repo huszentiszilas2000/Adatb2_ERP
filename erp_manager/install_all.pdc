@@ -67,3 +67,17 @@ PROMPT Installing Triggers...
 @./triggers/stocktab_h_trg.trg
 
 PROMPT Installing Triggers Done
+
+PROMPT Installing Types...
+
+@./types/ty_material.typ
+@./types/ty_partner.typ
+@./types/ty_stock.typ
+@./types/ty_salesinvoiceitem.typ
+@./types/ty_salesinvoiceitem_list.tps
+@./types/ty_salesinvoice.typ
+@./types/ty_salesorderitem.typ
+@./types/ty_salesorderitem_list.tps
+@./types/ty_salesorder.typ
+
+PROMPT Installing Types Done
