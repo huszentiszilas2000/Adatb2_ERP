@@ -1,9 +1,9 @@
 CREATE OR REPLACE TRIGGER salesorderitemtab_h_trg
-  BEFORE INSERT OR UPDATE OR DELETE ON salesorderitemtab_h
+  AFTER INSERT OR UPDATE OR DELETE ON salesorderitemtab
   FOR EACH ROW
 DECLARE
   v_mod_user salesorderitemtab_h.mod_user_id%TYPE;
-  v_mod_time salesorderitemtab_h.db_end%TYPE;
+  v_mod_time salesorderitemtab_h.db_beg%TYPE;
 BEGIN
   v_mod_user := sys_context('USERENV', 'OS_USER');
   v_mod_time := SYSDATE;
@@ -16,7 +16,6 @@ BEGIN
       ,material_id
       ,mennyiseg
       ,db_beg
-      ,db_end
       ,mod_user_id
       ,db_deleted)
     VALUES
@@ -24,7 +23,6 @@ BEGIN
       ,:old.salesorder_id
       ,:old.material_id
       ,:old.mennyiseg
-      ,:old.db_beg
       ,v_mod_time
       ,v_mod_user
       ,'Y');
@@ -35,7 +33,6 @@ BEGIN
       ,material_id
       ,mennyiseg
       ,db_beg
-      ,db_end
       ,mod_user_id
       ,db_deleted)
     VALUES
@@ -44,7 +41,6 @@ BEGIN
       ,:new.material_id
       ,:new.mennyiseg
       ,:new.db_beg
-      ,:new.db_end
       ,:new.mod_user_id
       ,'N');
   END IF;

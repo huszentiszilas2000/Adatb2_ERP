@@ -1,9 +1,9 @@
 CREATE OR REPLACE TRIGGER stocktab_h_trg
-  BEFORE INSERT OR UPDATE OR DELETE ON stocktab_h
+  AFTER INSERT OR UPDATE OR DELETE ON stocktab
   FOR EACH ROW
 DECLARE
   v_mod_user stocktab_h.mod_user_id%TYPE;
-  v_mod_time stocktab_h.db_end%TYPE;
+  v_mod_time stocktab_h.db_beg%TYPE;
 BEGIN
   v_mod_user := sys_context('USERENV', 'OS_USER');
   v_mod_time := SYSDATE;
@@ -15,14 +15,12 @@ BEGIN
       ,cikk_id
       ,mennyiseg
       ,db_beg
-      ,db_end
       ,mod_user_id
       ,db_deleted)
     VALUES
       (:old.db_id
       ,:old.cikk_id
       ,:old.mennyiseg
-      ,:old.db_beg
       ,v_mod_time
       ,v_mod_user
       ,'Y');
@@ -32,7 +30,6 @@ BEGIN
       ,cikk_id
       ,mennyiseg
       ,db_beg
-      ,db_end
       ,mod_user_id
       ,db_deleted)
     VALUES
@@ -40,7 +37,6 @@ BEGIN
       ,:new.cikk_id
       ,:new.mennyiseg
       ,:new.db_beg
-      ,:new.db_end
       ,:new.mod_user_id
       ,'N');
   END IF;

@@ -1,9 +1,9 @@
 CREATE OR REPLACE TRIGGER partnertab_h_trg
-  AFTER INSERT OR UPDATE OR DELETE ON partnertab_h
+  AFTER INSERT OR UPDATE OR DELETE ON partnertab
   FOR EACH ROW
 DECLARE
   v_mod_user partnertab_h.mod_user_id%TYPE;
-  v_mod_time partnertab_h.db_end%TYPE;
+  v_mod_time partnertab_h.db_beg%TYPE;
 BEGIN
   v_mod_user := sys_context('USERENV', 'OS_USER');
   v_mod_time := SYSDATE;
@@ -17,7 +17,6 @@ BEGIN
       ,bankszamlaszam
       ,fizetesi_mod
       ,db_beg
-      ,db_end
       ,mod_user_id
       ,db_deleted)
     VALUES
@@ -26,7 +25,6 @@ BEGIN
       ,:old.partner_cim
       ,:old.bankszamlaszam
       ,:old.fizetesi_mod
-      ,:old.db_beg
       ,v_mod_time
       ,v_mod_user
       ,'Y');
@@ -38,7 +36,6 @@ BEGIN
       ,bankszamlaszam
       ,fizetesi_mod
       ,db_beg
-      ,db_end
       ,mod_user_id
       ,db_deleted)
     VALUES
@@ -48,7 +45,6 @@ BEGIN
       ,:new.bankszamlaszam
       ,:new.fizetesi_mod
       ,:new.db_beg
-      ,:new.db_end
       ,:new.mod_user_id
       ,'N');
   END IF;

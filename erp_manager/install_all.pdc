@@ -50,14 +50,6 @@ PROMPT Installing Alters Done
 
 PROMPT Installing Triggers...
 
-@./triggers/materialtab_trg.trg
-@./triggers/partnertab_trg.trg
-@./triggers/salesinvoiceitemtab_trg.trg
-@./triggers/salesinvoicetab_trg.trg
-@./triggers/salesorderitemtab_trg.trg
-@./triggers/salesordertab_trg.trg
-@./triggers/stocktab_trg.trg
-
 @./triggers/materialtab_h_trg.trg
 @./triggers/partnertab_h_trg.trg
 @./triggers/salesinvoiceitemtab_h_trg.trg
@@ -65,6 +57,14 @@ PROMPT Installing Triggers...
 @./triggers/salesorderitemtab_h_trg.trg
 @./triggers/salesordertab_h_trg.trg
 @./triggers/stocktab_h_trg.trg
+
+@./triggers/materialtab_trg.trg
+@./triggers/partnertab_trg.trg
+@./triggers/salesinvoiceitemtab_trg.trg
+@./triggers/salesinvoicetab_trg.trg
+@./triggers/salesorderitemtab_trg.trg
+@./triggers/salesordertab_trg.trg
+@./triggers/stocktab_trg.trg
 
 PROMPT Installing Triggers Done
 
