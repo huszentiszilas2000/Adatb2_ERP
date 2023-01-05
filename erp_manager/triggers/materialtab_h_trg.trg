@@ -7,38 +7,42 @@ DECLARE
 BEGIN
   v_mod_user := sys_context('USERENV', 'OS_USER');
   v_mod_time := SYSDATE;
-  
+
   IF deleting
   THEN
-    INSERT INTO materialtab_h(db_id,
-                         nev,
-                         ar,
-                         db_beg,
-                         db_end,
-                         mod_user_id,
-                         db_deleted)
-                         values(:old.db_id,
-                                :old.nev,
-                                :old.ar,
-                                :old.db_beg,
-                                v_mod_time,
-                                v_mod_user,
-                                'Y');
+    INSERT INTO materialtab_h
+      (db_id
+      ,nev
+      ,ar
+      ,db_beg
+      ,db_end
+      ,mod_user_id
+      ,db_deleted)
+    VALUES
+      (:old.db_id
+      ,:old.nev
+      ,:old.ar
+      ,:old.db_beg
+      ,v_mod_time
+      ,v_mod_user
+      ,'Y');
   ELSE
-    INSERT INTO partnertab_h(db_id,
-                         nev,
-                         ar,
-                         db_beg,
-                         db_end,
-                         mod_user_id,
-                         db_deleted)
-                         values(:new.db_id,
-                                :new.nev,
-                                :new.ar,
-                                :new.db_beg,
-                                :new.db_end,
-                                :new.mod_user_id,
-                                'N');
+    INSERT INTO materialtab_h
+      (db_id
+      ,nev
+      ,ar
+      ,db_beg
+      ,db_end
+      ,mod_user_id
+      ,db_deleted)
+    VALUES
+      (:new.db_id
+      ,:new.nev
+      ,:new.ar
+      ,:new.db_beg
+      ,:new.db_end
+      ,:new.mod_user_id
+      ,'N');
   END IF;
 END materialtab_h_trg;
 /

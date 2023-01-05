@@ -10,4 +10,60 @@ PROMPT Installing Sequences...
 @./sequence/salesorderitem_seq.sql
 @./sequence/stock_seq.sql
 
-PROMPT Installing Sequences Done...
+PROMPT Installing Sequences Done
+
+PROMPT Installing Tables...
+
+@./tables/materialtab.sql
+@./tables/partnertab.sql
+@./tables/salesinvoiceitemtab.sql
+@./tables/salesinvoicetab.sql
+@./tables/salesorderitemtab.sql
+@./tables/salesordertab.sql
+@./tables/stocktab.sql
+
+PROMPT Installing Tables Done
+
+PROMPT Installing History Tables...
+
+@./tables/materialtab_h.sql
+@./tables/partnertab_h.sql
+@./tables/salesinvoiceitemtab_h.sql
+@./tables/salesinvoicetab_h.sql
+@./tables/salesorderitemtab_h.sql
+@./tables/salesordertab_h.sql
+@./tables/stocktab_h.sql
+
+PROMPT Installing History Tables Done
+
+PROMPT Installing Alters...
+
+@./alter/materialtab_alter.sql
+@./alter/partnertab_alter.sql
+@./alter/salesinvoiceitemtab_alter.sql
+@./alter/salesinvoicetab_alter.sql
+@./alter/salesorderitemtab_alter.sql
+@./alter/salesordertab_alter.sql
+@./alter/stocktab_alter.sql
+
+PROMPT Installing Alters Done
+
+PROMPT Installing Triggers...
+
+@./triggers/materialtab_trg.trg
+@./triggers/partnertab_trg.trg
+@./triggers/salesinvoiceitemtab_trg.trg
+@./triggers/salesinvoicetab_trg.trg
+@./triggers/salesorderitemtab_trg.trg
+@./triggers/salesordertab_trg.trg
+@./triggers/stocktab_trg.trg
+
+@./triggers/materialtab_h_trg.trg
+@./triggers/partnertab_h_trg.trg
+@./triggers/salesinvoiceitemtab_h_trg.trg
+@./triggers/salesinvoicetab_h_trg.trg
+@./triggers/salesorderitemtab_h_trg.trg
+@./triggers/salesordertab_h_trg.trg
+@./triggers/stocktab_h_trg.trg
+
+PROMPT Installing Triggers Done

@@ -1,2 +1,2 @@
 ALTER TABLE salesinvoicetab
-      ADD CONSTRAINT deleted_boolean CHECK (db_deleted = 'Y' OR db_deleted = 'N');
+      ADD CONSTRAINT salesinvoice_deleted_boolean CHECK (db_deleted = 'Y' OR db_deleted = 'N');

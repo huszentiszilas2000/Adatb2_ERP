@@ -9,11 +9,10 @@ BEGIN
       :new.db_id := partner_seq.nextval;
     END IF;
   
-    :new.db_beg    := SYSDATE;
-    :new.db_end    := TO_DATE('31-12-9999');
+    :new.db_beg := SYSDATE;
+    :new.db_end := to_date('31-12-9999 23:59:59', 'dd/mm/yyyy HH:MI:SS');
   END IF;
 
   :new.mod_user_id := sys_context('USERENV', 'OS_USER');
 END partnertab_trg;
-/
 /

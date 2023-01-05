@@ -1,14 +1,13 @@
-create or replace trigger salesinvoicetab_h_trg
-  before insert or update or delete
-  on salesinvoicetab_h 
-  for each row
-declare
+CREATE OR REPLACE TRIGGER salesinvoicetab_h_trg
+  BEFORE INSERT OR UPDATE OR DELETE ON salesinvoicetab_h
+  FOR EACH ROW
+DECLARE
   v_mod_user salesinvoicetab_h.mod_user_id%TYPE;
   v_mod_time salesinvoicetab_h.db_end%TYPE;
-begin
+BEGIN
   v_mod_user := sys_context('USERENV', 'OS_USER');
   v_mod_time := SYSDATE;
-  
+
   IF deleting
   THEN
     INSERT INTO salesinvoicetab_h
@@ -41,5 +40,5 @@ begin
       ,:new.mod_user_id
       ,'N');
   END IF;
-end salesinvoice_h_trg;
+END salesinvoice_h_trg;
 /
