@@ -81,3 +81,14 @@ PROMPT Installing Types...
 @./types/ty_salesorder.typ
 
 PROMPT Installing Types Done
+
+PROMPT Installing Data...
+
+@./data/material_data.sql
+@./data/partner_data.sql
+@./data/stock_data.sql
+@./data/salesorder_data.sql
+@./data/salesorderitem_data.sql
+
+PROMPT Installing Data Done
+
