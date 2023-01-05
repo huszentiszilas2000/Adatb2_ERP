@@ -44,7 +44,7 @@ BEGIN
       ,:new.partner_cim
       ,:new.bankszamlaszam
       ,:new.fizetesi_mod
-      ,:new.db_beg
+      ,v_mod_time
       ,:new.mod_user_id
       ,'N');
   END IF;

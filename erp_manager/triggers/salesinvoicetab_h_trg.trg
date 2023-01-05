@@ -32,7 +32,7 @@ BEGIN
     VALUES
       (:new.db_id
       ,:new.statusz
-      ,:new.db_beg
+      ,v_mod_time
       ,:new.mod_user_id
       ,'N');
   END IF;

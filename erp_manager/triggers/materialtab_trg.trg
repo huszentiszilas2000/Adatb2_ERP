@@ -9,10 +9,9 @@ BEGIN
       :new.db_id := material_seq.nextval;
     END IF;
   
-    :new.db_beg := SYSDATE;
     :new.db_deleted := 'N';
   END IF;
-
+  :new.db_beg := SYSDATE;
   :new.mod_user_id := sys_context('USERENV', 'OS_USER');
 END materialtab_trg;
 /

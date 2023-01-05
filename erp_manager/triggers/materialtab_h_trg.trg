@@ -36,7 +36,7 @@ BEGIN
       (:new.db_id
       ,:new.nev
       ,:new.ar
-      ,:new.db_beg
+      ,v_mod_time
       ,:new.mod_user_id
       ,'N');
   END IF;

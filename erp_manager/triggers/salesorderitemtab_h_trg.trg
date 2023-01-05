@@ -40,7 +40,7 @@ BEGIN
       ,:new.salesorder_id
       ,:new.material_id
       ,:new.mennyiseg
-      ,:new.db_beg
+      ,v_mod_time
       ,:new.mod_user_id
       ,'N');
   END IF;
