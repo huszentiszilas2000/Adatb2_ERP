@@ -89,6 +89,8 @@ PROMPT Installing Data...
 @./data/stock_data.sql
 @./data/salesorder_data.sql
 @./data/salesorderitem_data.sql
+@./data/salesinvoice_data.sql
+@./data/salesinvoiceitem_data.sql
 
 PROMPT Installing Data Done
 
