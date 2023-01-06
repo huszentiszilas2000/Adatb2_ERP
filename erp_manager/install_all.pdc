@@ -94,3 +94,16 @@ PROMPT Installing Data...
 
 PROMPT Installing Data Done
 
+PROMPT Installing View...
+
+@./views/rend_kiegyenlitetlen_szamlak.sql
+@./views/cikk_keszlet.sql
+@./views/partner_rendeles_szama.sql
+@./views/gyartani_valo_keszlet.sql
+@./views/keszlet_ertek.sql
+@./views/nincs_rendeles.sql
+@./views/partner_tartozasok.sql
+@./views/view_futtatas.sql
+
+PROMPT Installing View Done
+
