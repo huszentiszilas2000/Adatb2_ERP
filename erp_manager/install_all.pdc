@@ -79,6 +79,7 @@ PROMPT Installing Types...
 @./types/ty_salesorderitem.typ
 @./types/ty_salesorderitem_list.tps
 @./types/ty_salesorder.typ
+@./types/ty_number_list.tps
 
 PROMPT Installing Types Done
 
@@ -106,4 +107,19 @@ PROMPT Installing View...
 @./views/view_futtatas.sql
 
 PROMPT Installing View Done
+
+PROMPT Installing Packages...
+
+@./package/pkg_exception.spc
+@./package/material_pkg.pck
+@./package/partner_pkg.pck
+@./package/salesinvoice_pkg.pck
+@./package/salesinvoiceitem_pkg.pck
+@./package/salesorder_pkg.pck
+@./package/salesorderitem_pkg.pck
+@./package/stock_pkg.pck
+
+PROMPT Installing Packages Done
+
+PROMPT Scriptek a /script mappában található és tesztelhetõek
 
